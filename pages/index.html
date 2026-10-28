@@ -1,46 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<link rel="stylesheet" href="../css/style.css">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#f8f7f3">
-	<title>Casa Forma — design para viver</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c91f32"><meta name="description" content="Produtos para deixar sua casa mais bonita, organizada e confortável.">
+  <title>Lar &amp; Cia — Tudo para sua casa</title><link rel="stylesheet" href="../css/style.css"><script src="../js/main.js" defer></script>
 </head>
 <body>
-	<div class="announcement">FRETE GRÁTIS A PARTIR DE R$ 299 · 10% OFF NA PRIMEIRA COMPRA</div>
-	<header>
-		<a class="brand" href="#inicio" aria-label="Casa Forma, início">casa<span>forma</span></a>
-		<nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#sobre">Nossa história</a></nav>
-		<div class="header-actions"><button class="icon-btn" aria-label="Pesquisar" onclick="document.getElementById('busca').focus()">⌕</button><button class="icon-btn cart-button" aria-label="Carrinho de compras">Sacola <span class="cart-count" id="cart-count">0</span></button></div>
-	</header>
-	<main>
-		<section class="hero" id="inicio"><div class="hero-copy"><span class="eyebrow">Design consciente · Feito para durar</span><h1>Um lar com a sua forma.</h1><p>Peças que unem beleza, conforto e propósito para transformar os pequenos momentos do dia a dia.</p><a class="primary-btn" href="#produtos">Explore a coleção</a></div></section>
-		<div class="benefits"><div class="benefit"><strong>Feito com cuidado</strong>Materiais selecionados e produção responsável</div><div class="benefit"><strong>Entrega para todo o Brasil</strong>Frete grátis em compras acima de R$ 299</div><div class="benefit"><strong>Compra segura</strong>Até 6x sem juros no cartão</div></div>
-		<section class="section" id="produtos">
-			<div class="section-heading"><div><span class="eyebrow">Escolhas da casa</span><h2>Favoritos da temporada</h2></div><p>Design atemporal para o seu espaço.</p></div>
-			<div class="filters" aria-label="Filtrar produtos"><button class="filter active" data-filter="todos">Todos</button><button class="filter" data-filter="decoracao">Decoração</button><button class="filter" data-filter="iluminacao">Iluminação</button><button class="filter" data-filter="textil">Têxtil</button><input id="busca" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos" style="margin-left:auto;border:1px solid var(--line);background:transparent;padding:9px 13px;border-radius:30px;font-size:12px;max-width:190px"></div>
-			<div class="products" id="products">
-				<article class="product-card" data-category="decoracao" data-name="vaso terracota"><div class="product-image"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80" alt="Vaso artesanal em cerâmica terracota"><span class="tag">Mais vendido</span><button class="add-btn" data-product="Vaso Terracota">Adicionar à sacola</button></div><div class="product-info"><h3>Vaso Terracota</h3><div class="product-meta"><span class="price">R$ 189,00</span><span class="swatches"><i class="swatch" style="background:#bd775e"></i><i class="swatch" style="background:#d6c9b0"></i></span></div></div></article>
-				<article class="product-card" data-category="iluminacao" data-name="luminaria arco"><div class="product-image"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80" alt="Luminária de mesa com luz aconchegante"><span class="tag">Novo</span><button class="add-btn" data-product="Luminária Arco">Adicionar à sacola</button></div><div class="product-info"><h3>Luminária Arco</h3><div class="product-meta"><span class="price">R$ 349,00</span><span class="swatches"><i class="swatch" style="background:#d5c6a9"></i><i class="swatch" style="background:#454943"></i></span></div></div></article>
-				<article class="product-card" data-category="textil" data-name="manta calma"><div class="product-image"><img src="https://images.unsplash.com/photo-1600369671236-e74521d4b6ad?auto=format&fit=crop&w=800&q=80" alt="Manta macia em tom natural sobre poltrona"><button class="add-btn" data-product="Manta Calma">Adicionar à sacola</button></div><div class="product-info"><h3>Manta Calma</h3><div class="product-meta"><span class="price">R$ 229,00</span><span class="swatches"><i class="swatch" style="background:#b9aa91"></i><i class="swatch" style="background:#777d70"></i></span></div></div></article>
-				<article class="product-card" data-category="decoracao" data-name="bandeja serena"><div class="product-image"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80" alt="Peça decorativa artesanal em cerâmica"><span class="tag">Feito à mão</span><button class="add-btn" data-product="Bandeja Serena">Adicionar à sacola</button></div><div class="product-info"><h3>Bandeja Serena</h3><div class="product-meta"><span class="price">R$ 159,00</span><span class="swatches"><i class="swatch" style="background:#d4c7af"></i><i class="swatch" style="background:#9c806b"></i></span></div></div></article>
-			</div>
-			<p id="no-results" style="display:none;color:var(--muted);font-size:14px">Nenhum produto encontrado.</p>
-		</section>
-		<section class="story" id="sobre"><div class="story-image" role="img" aria-label="Sala acolhedora com móveis e decoração natural"></div><div class="story-copy"><span class="eyebrow">Nossa essência</span><h2>Menos excesso.<br>Mais significado.</h2><p>Acreditamos que a casa deve contar a sua história. Criamos uma curadoria de peças honestas, feitas para acompanhar você por muitos anos.</p><a class="primary-btn" href="#produtos">Conheça a coleção</a></div></section>
-		<section class="newsletter"><h2>Um pouco de inspiração, por favor.</h2><p>Receba novidades, ideias para casa e 10% OFF na primeira compra.</p><form class="signup" id="signup"><input type="email" placeholder="Seu melhor e-mail" aria-label="Seu melhor e-mail" required><button type="submit">QUERO RECEBER →</button></form></section>
-	</main>
-	<footer><a class="brand" href="#inicio">casa<span>forma</span></a><span>Design para viver, com calma e intenção.</span><span>© 2027 Casa Forma · Feito com carinho no Brasil</span></footer>
-	<div class="toast" id="toast" role="status" aria-live="polite"></div>
-	<script>
-		let cart=0;let activeFilter='todos';const count=document.getElementById('cart-count'),toast=document.getElementById('toast');let toastTimer;
-		function notify(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2400)}
-		document.querySelectorAll('.add-btn').forEach(button=>button.addEventListener('click',()=>{cart++;count.textContent=cart;notify(button.dataset.product+' adicionado à sacola!')}));
-		function filterProducts(){const term=document.getElementById('busca').value.toLowerCase();let shown=0;document.querySelectorAll('.product-card').forEach(card=>{const matchesCategory=activeFilter==='todos'||card.dataset.category===activeFilter;const matchesSearch=card.dataset.name.includes(term);card.style.display=matchesCategory&&matchesSearch?'':'none';if(matchesCategory&&matchesSearch)shown++});document.getElementById('no-results').style.display=shown?'none':'block'}
-		document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelector('.filter.active').classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;filterProducts()}));
-		document.getElementById('busca').addEventListener('input',filterProducts);
-		document.getElementById('signup').addEventListener('submit',event=>{event.preventDefault();notify('Obrigada! Você está na lista.');event.target.reset()});
-	</script>
-</body>
-</html>
+<div class="announcement">OFERTAS PARA SUA CASA · FRETE GRÁTIS A PARTIR DE R$ 199</div>
+<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span class="brand-mark">L</span>lar<span>&amp;cia</span></a><button class="mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><nav class="main-nav" aria-label="Navegação principal"><a href="index.html" aria-current="page">Início</a><a href="produtos.html">Produtos</a><a href="produtos.html?categoria=cozinha">Cozinha</a><a href="produtos.html?categoria=organizacao">Organização</a><a href="#sobre">Sobre a loja</a></nav><div class="header-actions"><form class="search-form" action="produtos.html" role="search"><button aria-label="Pesquisar" type="submit">⌕</button><input name="q" placeholder="Buscar produtos" aria-label="Buscar produtos"></form><a class="cart-link" href="carrinho.html" aria-label="Carrinho de compras">♧ Carrinho <span class="cart-count" data-cart-count>0</span></a></div></div></header>
+<main>
+<section class="hero"><div class="hero-copy"><span class="eyebrow">Sua casa, do seu jeito</span><h1>Pequenos detalhes. Grandes mudanças.</h1><p>Encontre produtos práticos, bonitos e acessíveis para deixar cada cantinho da sua casa ainda melhor.</p><a class="button button-light" href="produtos.html">Comprar agora <span aria-hidden="true">→</span></a></div></section>
+<section class="benefits" aria-label="Vantagens da loja"><div class="benefit"><span class="benefit-icon">🚚</span><div><strong>Entrega para todo o Brasil</strong><span>Consulte as opções para seu endereço.</span></div></div><div class="benefit"><span class="benefit-icon">♡</span><div><strong>Escolhas para o dia a dia</strong><span>Funcionalidade, conforto e estilo.</span></div></div><div class="benefit"><span class="benefit-icon">✓</span><div><strong>Compra simples e segura</strong><span>Experiência fácil do começo ao fim.</span></div></div></section>
+<section class="section"><div class="section-heading"><div><span class="eyebrow">Explore por ambiente</span><h2>Encontre o que sua casa precisa</h2></div><a class="text-link" href="produtos.html">Ver todos os produtos →</a></div><div class="category-grid"><a class="category-card" href="produtos.html?categoria=cozinha"><span class="category-icon">🍽️</span><strong>Cozinha</strong><span>Praticidade para cozinhar</span></a><a class="category-card" href="produtos.html?categoria=organizacao"><span class="category-icon">🧺</span><strong>Organização</strong><span>Cada coisa no seu lugar</span></a><a class="category-card" href="produtos.html?categoria=decoracao"><span class="category-icon">🪴</span><strong>Decoração</strong><span>Um toque de personalidade</span></a><a class="category-card" href="produtos.html?categoria=textil"><span class="category-icon">🛏️</span><strong>Cama, mesa e banho</strong><span>Mais conforto na rotina</span></a></div></section>
+<section class="section" id="destaques"><div class="section-heading"><div><span class="eyebrow">Queridinhos da loja</span><h2>Produtos em destaque</h2></div><a class="text-link" href="produtos.html">Ver catálogo completo →</a></div><div class="products" id="products"></div><p class="small-note">* Produtos, preços, avaliações e condições são exemplos demonstrativos para personalização do projeto.</p></section>
+<section class="story" id="sobre"><div class="story-image" role="img" aria-label="Sala de estar aconchegante e organizada"></div><div class="story-copy"><span class="eyebrow">Bem-vindo à Lar &amp; Cia</span><h2>Uma casa gostosa de viver começa nos detalhes.</h2><p>Reunimos ideias e produtos para ajudar você a organizar, decorar e aproveitar melhor os ambientes — sem complicar sua rotina.</p><a class="button" href="produtos.html">Descobrir produtos</a></div></section>
+<section class="newsletter"><h2>Novidades para sua casa</h2><p>Cadastre seu e-mail para receber novidades e ofertas da Lar &amp; Cia.</p><form class="signup" id="signup"><input type="email" placeholder="Seu melhor e-mail" aria-label="Seu melhor e-mail" required><button type="submit">QUERO RECEBER →</button></form></section>
+</main>
+<footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">L</span>lar<span>&amp;cia</span></a><span>Praticidade e carinho em cada cantinho.</span><div class="footer-links"><a href="produtos.html">Produtos</a><a href="pedidos.html">Meus pedidos</a><a href="login.html">Minha conta</a></div><span>© 2026 Lar &amp; Cia · Loja demonstrativa</span></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
