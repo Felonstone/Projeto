@@ -1,1 +1,239 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#c91f32"><title>Finalizar compra — Lar &amp; Cia</title><link rel="stylesheet" href="css/style.css"><script src="js/main.js" defer></script></head><body><div class="announcement">OFERTAS PARA SUA CASA · FRETE GRÁTIS A PARTIR DE R$ 199</div><header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span class="brand-mark">L</span>lar<span>&amp;cia</span></a><nav class="main-nav"><a href="index.html">Início</a><a href="produtos.html">Produtos</a></nav><a class="cart-link" href="carrinho.html">← Voltar ao carrinho</a></div></header><main class="page-shell"><div class="breadcrumbs"><a href="index.html">Início</a> / <a href="carrinho.html">Carrinho</a> / Finalizar compra</div><div class="page-heading"><div><span class="eyebrow">Quase lá</span><h1>Finalizar compra</h1><p>Informe os dados de entrega para continuar.</p></div></div><div id="checkout-empty" class="notice" hidden>Seu carrinho está vazio. <a href="produtos.html"><strong>Volte ao catálogo para escolher produtos.</strong></a></div><div class="form-card"><div class="notice">Esta página é apenas uma demonstração visual. Não envia dados, não cria pedidos e não processa pagamentos reais. Não informe dados bancários.</div><form id="checkout-form"><div class="form-grid"><div class="field"><label for="nome">Nome completo</label><input id="nome" autocomplete="name" required placeholder="Seu nome"></div><div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required placeholder="voce@email.com"></div><div class="field"><label for="telefone">Telefone</label><input id="telefone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000"></div><div class="field"><label for="cep">CEP</label><input id="cep" autocomplete="postal-code" required placeholder="00000-000"></div><div class="field full"><label for="endereco">Endereço</label><input id="endereco" autocomplete="street-address" required placeholder="Rua, avenida, número e complemento"></div><div class="field"><label for="cidade">Cidade</label><input id="cidade" autocomplete="address-level2" required></div><div class="field"><label for="estado">Estado</label><select id="estado" required><option value="">Selecione</option><option>RJ</option><option>SP</option><option>MG</option><option>ES</option><option>Outro</option></select></div><div class="field full"><label>Subtotal dos produtos</label><strong id="checkout-total">R$ 0,00</strong></div></div><div class="form-actions"><button class="button" type="submit">Confirmar dados (demonstração)</button><a class="button button-outline" href="carrinho.html">Voltar</a></div></form></div></main><footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">L</span>lar<span>&amp;cia</span></a><span>© 2026 Lar &amp; Cia · Loja demonstrativa</span></footer><div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c91f32">
+
+    <title>Finalizar compra — Lar &amp; Cia</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <div class="announcement">
+        OFERTAS PARA SUA CASA · FRETE GRÁTIS A PARTIR DE R$ 199
+    </div>
+
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                <span class="brand-mark">L</span>lar<span>&amp;cia</span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+            </nav>
+
+            <a class="cart-link" href="carrinho.html">
+                ← Voltar ao carrinho
+            </a>
+
+        </div>
+    </header>
+
+    <main class="page-shell">
+
+        <!-- Navegação estrutural -->
+        <div class="breadcrumbs">
+            <a href="index.html">Início</a> /
+            <a href="carrinho.html">Carrinho</a> /
+            Finalizar compra
+        </div>
+
+        <!-- Título da página -->
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">Quase lá</span>
+
+                <h1>Finalizar compra</h1>
+
+                <p>
+                    Informe os dados de entrega para continuar.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Aviso para carrinho vazio -->
+        <div id="checkout-empty" class="notice" hidden>
+
+            Seu carrinho está vazio.
+
+            <a href="produtos.html">
+                <strong>Volte ao catálogo para escolher produtos.</strong>
+            </a>
+
+        </div>
+
+        <!-- Formulário de demonstração -->
+        <div class="form-card">
+
+            <div class="notice">
+                Esta página é apenas uma demonstração visual.
+                Não envia dados, não cria pedidos e não processa
+                pagamentos reais. Não informe dados bancários.
+            </div>
+
+            <form id="checkout-form">
+
+                <div class="form-grid">
+
+                    <!-- Nome completo -->
+                    <div class="field">
+
+                        <label for="nome">Nome completo</label>
+
+                        <input
+                            id="nome"
+                            autocomplete="name"
+                            required
+                            placeholder="Seu nome">
+
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="field">
+
+                        <label for="email">E-mail</label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                            placeholder="voce@email.com">
+
+                    </div>
+
+                    <!-- Telefone -->
+                    <div class="field">
+
+                        <label for="telefone">Telefone</label>
+
+                        <input
+                            id="telefone"
+                            type="tel"
+                            autocomplete="tel"
+                            required
+                            placeholder="(00) 00000-0000">
+
+                    </div>
+
+                    <!-- CEP -->
+                    <div class="field">
+
+                        <label for="cep">CEP</label>
+
+                        <input
+                            id="cep"
+                            autocomplete="postal-code"
+                            required
+                            placeholder="00000-000">
+
+                    </div>
+
+                    <!-- Endereço de entrega -->
+                    <div class="field full">
+
+                        <label for="endereco">Endereço</label>
+
+                        <input
+                            id="endereco"
+                            autocomplete="street-address"
+                            required
+                            placeholder="Rua, avenida, número e complemento">
+
+                    </div>
+
+                    <!-- Cidade -->
+                    <div class="field">
+
+                        <label for="cidade">Cidade</label>
+
+                        <input
+                            id="cidade"
+                            autocomplete="address-level2"
+                            required>
+
+                    </div>
+
+                    <!-- Estado -->
+                    <div class="field">
+
+                        <label for="estado">Estado</label>
+
+                        <select id="estado" required>
+
+                            <option value="">Selecione</option>
+                            <option>RJ</option>
+                            <option>SP</option>
+                            <option>MG</option>
+                            <option>ES</option>
+                            <option>Outro</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Resumo financeiro -->
+                    <div class="field full">
+
+                        <label>Subtotal dos produtos</label>
+
+                        <strong id="checkout-total">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="form-actions">
+
+                    <button class="button" type="submit">
+                        Confirmar dados (demonstração)
+                    </button>
+
+                    <a class="button button-outline" href="carrinho.html">
+                        Voltar
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+
+        <a class="brand" href="index.html">
+            <span class="brand-mark">L</span>lar<span>&amp;cia</span>
+        </a>
+
+        <span>© 2026 Lar &amp; Cia · Loja demonstrativa</span>
+
+    </footer>
+
+    <!-- Notificações -->
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite">
+    </div>
+
+</body>
+
+</html>

@@ -1,5 +1,153 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#c91f32"><title>Produtos — Lar &amp; Cia</title><link rel="stylesheet" href="css/style.css"><script src="js/main.js" defer></script></head><body>
-<div class="announcement">OFERTAS PARA SUA CASA · FRETE GRÁTIS A PARTIR DE R$ 199</div><header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span class="brand-mark">L</span>lar<span>&amp;cia</span></a><button class="mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><nav class="main-nav" aria-label="Navegação principal"><a href="index.html">Início</a><a href="produtos.html" aria-current="page">Produtos</a><a href="produtos.html?categoria=cozinha">Cozinha</a><a href="produtos.html?categoria=organizacao">Organização</a></nav><div class="header-actions"><form class="search-form" action="produtos.html" role="search"><button type="submit" aria-label="Pesquisar">⌕</button><input name="q" id="busca" placeholder="Buscar produtos" aria-label="Buscar produtos"></form><a class="cart-link" href="carrinho.html">♧ Carrinho <span class="cart-count" data-cart-count>0</span></a></div></div></header>
-<main class="page-shell"><div class="breadcrumbs"><a href="index.html">Início</a> / Produtos</div><div class="page-heading"><div><span class="eyebrow">Nosso catálogo</span><h1>Produtos para sua casa</h1><p>Encontre itens para decorar, organizar e facilitar sua rotina.</p></div></div><div class="filters" aria-label="Filtrar produtos"><button class="filter active" data-filter="todos">Todos</button><button class="filter" data-filter="cozinha">Cozinha</button><button class="filter" data-filter="organizacao">Organização</button><button class="filter" data-filter="decoracao">Decoração</button><button class="filter" data-filter="textil">Cama, mesa e banho</button></div><div class="products" id="products"></div><p id="no-results" class="notice" hidden>Nenhum produto encontrado. Tente outro termo ou categoria.</p><p class="small-note">Catálogo demonstrativo: substitua fotos, descrições, preços e disponibilidade pelos dados reais da sua loja.</p></main>
-<footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">L</span>lar<span>&amp;cia</span></a><span>Praticidade e carinho em cada cantinho.</span><div class="footer-links"><a href="index.html">Início</a><a href="pedidos.html">Meus pedidos</a><a href="login.html">Minha conta</a></div><span>© 2026 Lar &amp; Cia · Loja demonstrativa</span></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
-</body></html>
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c91f32">
+
+    <title>Produtos — Lar &amp; Cia</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <div class="announcement">
+        OFERTAS PARA SUA CASA · FRETE GRÁTIS A PARTIR DE R$ 199
+    </div>
+
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                <span class="brand-mark">L</span>lar<span>&amp;cia</span>
+            </a>
+
+            <button
+                class="mobile-menu"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a href="index.html">Início</a>
+                <a href="produtos.html" aria-current="page">Produtos</a>
+                <a href="produtos.html?categoria=cozinha">Cozinha</a>
+                <a href="produtos.html?categoria=organizacao">Organização</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <form
+                    class="search-form"
+                    action="produtos.html"
+                    role="search">
+
+                    <button type="submit" aria-label="Pesquisar">
+                        ⌕
+                    </button>
+
+                    <input
+                        name="q"
+                        id="busca"
+                        placeholder="Buscar produtos"
+                        aria-label="Buscar produtos">
+                </form>
+
+                <a class="cart-link" href="carrinho.html">
+                    ♧ Carrinho
+                    <span class="cart-count" data-cart-count>0</span>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell">
+
+        <div class="breadcrumbs">
+            <a href="index.html">Início</a> / Produtos
+        </div>
+
+        <div class="page-heading">
+            <div>
+                <span class="eyebrow">Nosso catálogo</span>
+
+                <h1>Produtos para sua casa</h1>
+
+                <p>
+                    Encontre itens para decorar, organizar e facilitar sua rotina.
+                </p>
+            </div>
+        </div>
+
+        <div class="filters" aria-label="Filtrar produtos">
+
+            <button class="filter active" data-filter="todos">
+                Todos
+            </button>
+
+            <button class="filter" data-filter="cozinha">
+                Cozinha
+            </button>
+
+            <button class="filter" data-filter="organizacao">
+                Organização
+            </button>
+
+            <button class="filter" data-filter="decoracao">
+                Decoração
+            </button>
+
+            <button class="filter" data-filter="textil">
+                Cama, mesa e banho
+            </button>
+
+        </div>
+
+        <div class="products" id="products"></div>
+
+        <p id="no-results" class="notice" hidden>
+            Nenhum produto encontrado. Tente outro termo ou categoria.
+        </p>
+
+        <p class="small-note">
+            Catálogo demonstrativo: substitua fotos, descrições, preços e
+            disponibilidade pelos dados reais da sua loja.
+        </p>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <a class="brand" href="index.html">
+            <span class="brand-mark">L</span>lar<span>&amp;cia</span>
+        </a>
+
+        <span>Praticidade e carinho em cada cantinho.</span>
+
+        <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="pedidos.html">Meus pedidos</a>
+            <a href="login.html">Minha conta</a>
+        </div>
+
+        <span>© 2026 Lar &amp; Cia · Loja demonstrativa</span>
+
+    </footer>
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite">
+    </div>
+
+</body>
+
+</html>
