@@ -19,7 +19,50 @@ function renderProducts(target,items=PRODUCTS){const container=document.querySel
 function setupProductListing(){const grid=document.querySelector('#products');if(!grid)return;renderProducts('#products');const params=new URLSearchParams(location.search);const search=document.querySelector('#busca');if(search&&params.get('q'))search.value=params.get('q');let active=params.get('categoria')||'todos';const filters=[...document.querySelectorAll('[data-filter]')];if(!filters.some(btn=>btn.dataset.filter===active))active='todos';filters.forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===active));function filter(){const term=(search?.value||'').trim().toLocaleLowerCase('pt-BR');const shown=PRODUCTS.filter(p=>(active==='todos'||p.category===active)&&`${p.name} ${p.categoryLabel}`.toLocaleLowerCase('pt-BR').includes(term));renderProducts('#products',shown);const empty=document.querySelector('#no-results');if(empty)empty.hidden=shown.length>0;}filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.toggle('active',b===btn));active=btn.dataset.filter;filter();}));search?.addEventListener('input',filter);filter();}
 function setupProductDetail(){const target=document.querySelector('#product-detail');if(!target)return;const id=new URLSearchParams(location.search).get('id');const p=PRODUCTS.find(item=>item.id===id)||PRODUCTS[0];target.innerHTML=`<div><img class="detail-image" src="${p.image}" alt="${p.name}"></div><div class="detail-info"><div class="breadcrumbs"><a href="index.html">Início</a> / <a href="produtos.html">Produtos</a> / ${p.name}</div><span class="eyebrow">${p.categoryLabel}</span><h1>${p.name}</h1><div class="rating">★ 4,8 · Avaliações demonstrativas</div><div class="detail-price">${money(p.price)} ${p.oldPrice?`<span class="old-price">${money(p.oldPrice)}</span>`:''}</div><p>${p.description}</p><p>✓ Compra protegida<br>✓ Envio para todo o Brasil<br>✓ Atendimento dedicado</p><button class="button" type="button" data-add="${p.id}">Adicionar ao carrinho</button><p class="small-note">Demonstração visual: preços e disponibilidade são ilustrativos.</p></div>`;}
 function setupCart(){const root=document.querySelector('#cart-content');if(!root)return;const cart=getCart();const items=cart.map(item=>({...item,product:PRODUCTS.find(p=>p.id===item.id)})).filter(item=>item.product);const subtotal=items.reduce((sum,item)=>sum+item.product.price*item.qty,0);if(!items.length){root.innerHTML=`<div class="empty-state"><div class="empty-icon">🛍️</div><h2>Seu carrinho está vazio</h2><p>Encontre algo especial para deixar sua casa ainda melhor.</p><a class="button" href="produtos.html">Explorar produtos</a></div>`;return;}root.innerHTML=`<div class="cart-layout"><div class="cart-items">${items.map(item=>`<article class="cart-item"><img src="${item.product.image}" alt="${item.product.name}"><div><h3>${item.product.name}</h3><p>${money(item.product.price)} cada</p><div class="qty-control"><button type="button" data-qty="${item.id}" data-change="-1" aria-label="Diminuir quantidade">−</button><span>${item.qty}</span><button type="button" data-qty="${item.id}" data-change="1" aria-label="Aumentar quantidade">+</button></div><button class="remove-btn" type="button" data-remove="${item.id}">Remover</button></div><strong class="price">${money(item.product.price*item.qty)}</strong></article>`).join('')}</div><aside class="cart-summary"><h2>Resumo do pedido</h2><div class="summary-line"><span>Subtotal</span><strong>${money(subtotal)}</strong></div><div class="summary-line"><span>Frete</span><strong>${subtotal>=199?'Grátis':'Calculado depois'}</strong></div><div class="summary-line total"><span>Total parcial</span><strong>${money(subtotal)}</strong></div><a class="button" href="checkout.html">Continuar para entrega</a><p class="secure-note">🔒 Ambiente demonstrativo. Nenhum pagamento será processado.</p></aside></div>`;}
-function setupCheckout(){const form=document.querySelector('#checkout-form');if(!form)return;const cart=getCart();if(!cart.length){const msg=document.querySelector('#checkout-empty');if(msg)msg.hidden=false;form.hidden=true;return;}const summary=document.querySelector('#checkout-total');if(summary){const total=cart.reduce((sum,item)=>{const p=PRODUCTS.find(x=>x.id===item.id);return sum+(p?p.price*item.qty:0)},0);summary.textContent=money(total);}form.addEventListener('submit',e=>{e.preventDefault();notify('Demonstração concluída: nenhum pedido ou pagamento real foi criado.');form.reset();});}
+function setupCheckout(){
+ const form=document.querySelector('#checkout-form');
+ if(!form)return;
+ const cart=getCart().map(item=>({...item,product:PRODUCTS.find(p=>p.id===item.id)})).filter(item=>item.product&&Number(item.qty)>0);
+ if(!cart.length){
+  const msg=document.querySelector('#checkout-empty');if(msg)msg.hidden=false;
+  form.hidden=true;return;
+ }
+ const subtotal=cart.reduce((sum,item)=>sum+item.product.price*item.qty,0);
+ const summary=document.querySelector('#checkout-total');
+ if(summary)summary.textContent=money(subtotal);
+ const shipping=document.querySelector('#checkout-shipping');
+ if(shipping)shipping.textContent=subtotal>=199?'Frete grátis (pedido a partir de R$ 199,00).':'Frete: confirmar com a loja antes do pagamento.';
+ const itemsTarget=document.querySelector('#checkout-items');
+ if(itemsTarget)itemsTarget.innerHTML='<strong>Itens:</strong><br>'+cart.map(item=>`${item.qty} × ${item.product.name} — ${money(item.product.price*item.qty)}`).join('<br>');
+ form.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!form.reportValidity())return;
+  const value=id=>document.getElementById(id)?.value.trim()||'';
+  const lines=[
+   '*NOVO PEDIDO — LAR & CIA*',
+   '',
+   '*Dados do cliente*',
+   `Nome: ${value('nome')}`,
+   `E-mail: ${value('email')}`,
+   `Telefone: ${value('telefone')}`,
+   '',
+   '*Endereço de entrega*',
+   `CEP: ${value('cep')}`,
+   `Endereço: ${value('endereco')}`,
+   `Cidade: ${value('cidade')} - ${value('estado')}`,
+   '',
+   '*Produtos*',
+   ...cart.map(item=>`• ${item.qty} x ${item.product.name} — ${money(item.product.price)} cada = ${money(item.product.price*item.qty)}`),
+   '',
+   `*Subtotal dos produtos: ${money(subtotal)}*`,
+   subtotal>=199?'Frete: GRÁTIS':'Frete: confirmar com a loja',
+   '',
+   'Solicito a confirmação do total final e o envio do link/QR Code de pagamento da Infinity Pay.'
+  ];
+  const url='https://wa.me/5521996381554?text='+encodeURIComponent(lines.join('\n'));
+  window.open(url,'_blank','noopener,noreferrer');
+ });
+}
 document.addEventListener('click',event=>{const add=event.target.closest('[data-add]');if(add){addToCart(add.dataset.add);return;}const remove=event.target.closest('[data-remove]');if(remove){saveCart(getCart().filter(item=>item.id!==remove.dataset.remove));setupCart();notify('Produto removido do carrinho.');return;}const qty=event.target.closest('[data-qty]');if(qty){const cart=getCart();const item=cart.find(p=>p.id===qty.dataset.qty);if(item)item.qty+=Number(qty.dataset.change);saveCart(cart.filter(p=>p.qty>0));setupCart();}});
 document.querySelector('.mobile-menu')?.addEventListener('click',()=>{const nav=document.querySelector('.main-nav');const open=nav?.classList.toggle('open');document.querySelector('.mobile-menu')?.setAttribute('aria-expanded',String(!!open));});
 document.querySelector('#signup')?.addEventListener('submit',event=>{event.preventDefault();notify('Obrigado! Este formulário é apenas demonstrativo.');event.target.reset();});
