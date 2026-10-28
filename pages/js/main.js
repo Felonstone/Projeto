@@ -5,15 +5,15 @@
 
 const PRODUCTS = [
     {
-        id: 'organizador',
-        name: 'Organizador Multiuso',
-        category: 'organizacao',
-        categoryLabel: 'Organização',
-        price: 39.90,
-        oldPrice: 49.90,
-        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85',
+        id: 'chuveiro',
+        name: 'Chuveiro Lorenzetti Maxi Ducha Ultra 4600W 110V',
+        category: 'Casa e construção',
+        categoryLabel: 'Banheiro',
+        price: 80.90,
+        oldPrice: 100.90,
+        image: 'assets/products/chuveiro.png',
         tag: 'Oferta',
-        description: 'Organize os pequenos itens da casa com praticidade. Ideal para banheiro, cozinha, lavanderia ou escritório.'
+        description: '🚿Transforme seu banho com o Chuveiro Lorenzetti Maxi Ducha Ultra 4600W 220V! Com design moderno, qualidade reconhecida e excelente praticidade, ele é ideal para quem busca um banho confortável e revigorante. Uma ótima opção para renovar seu banheiro e aproveitar mais conforto em todos os dias! ✨'
     },
     {
         id: 'luminaria',
