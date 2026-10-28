@@ -31,7 +31,7 @@ const PRODUCTS = [
         name: 'Manta para Sofá',
         category: 'textil',
         categoryLabel: 'Cama, mesa e banho',
-        price: 0.00,
+        price: 0.10,
         oldPrice: null,
         image: 'https://images.unsplash.com/photo-1600369671236-e74521d4b6ad?auto=format&fit=crop&w=900&q=85',
         tag: 'Conforto',
